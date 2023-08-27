@@ -1,0 +1,34 @@
+name: dependency workflow
+on:
+    push:
+        branches:
+            -main
+            -develop
+    pull_request:
+        branches:
+            -main
+            -develop
+
+jobs: 
+    job1: test ubuntu command
+        runs-on: ubuntu-latest
+        steps:
+            -name: ubuntu test
+            -uses: actions/checkout@v2
+            -run: date
+    
+    job2: test windows commands
+        uses: windows-latest
+        steps:
+            -name: windows test
+            -uses: actions/checkout@v2
+            -run: echo %date%
+    
+    job3: test macos runner
+        uses: macos-latest
+        steps:
+            -name: step to run macos
+            -uses: actions/checkout@v2
+            -run: 
+            -needs: ["job1","job2"]
+
