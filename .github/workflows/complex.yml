@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: date
-  maxos:
+  macos:
     needs: [windows,linux]
     runs-on: macos-latest
     steps:
