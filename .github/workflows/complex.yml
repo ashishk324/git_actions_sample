@@ -1,1 +1,16 @@
-
+name: complex
+on: push
+jobs:
+  windows:
+    runs-on: windows-lates
+    steps:
+    - run: date
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - run: date
+  maxos:
+    needs: [windows,linux]
+    runs-on: macos=latest
+    steps:
+    - run: date
