@@ -2,7 +2,7 @@ name: complex
 on: push
 jobs:
   windows:
-    runs-on: windows-lates
+    runs-on: windows-latest
     steps:
     - run: date
   linux:
@@ -11,6 +11,6 @@ jobs:
     - run: date
   maxos:
     needs: [windows,linux]
-    runs-on: macos=latest
+    runs-on: macos-latest
     steps:
     - run: date
